@@ -25,7 +25,7 @@ $productResult = $eloquent->selectData($columnName, $tableName, @$whereValue);
 ## ===*=== [F]ETCH PRODUCT DATA BASED ON SESSION ID ===*=== ##
 
 
-## ===*=== [F]ETCH PRODUCT DATA BASED ON SESSION ID ===*=== ##	
+## ===*=== [F]ETCH PRODUCT DATA BASED ON SESSION ID ===*=== ##
 $columnName = $tableName = $whereValue = $inColumn = $inValue = $formatBy = $paginate = null;
 $columnName[1] = "product_master_image";
 $tableName = "products";
@@ -52,7 +52,7 @@ $columnName = $tableName = $whereValue = null;
 $columnName = "*";
 $tableName = "products";
 $whereValue["product_featured"] = "YES";
-$featuredResult = $eloquent->selectData($columnName, $tableName, @$whereValue);	
+$featuredResult = $eloquent->selectData($columnName, $tableName, @$whereValue);
 
 #== FEATURE PRODUCT COUNT
 $totalProducts = count($featuredResult);
@@ -94,10 +94,10 @@ $breadcrumbName = $eloquent->selectJoinData($columnName, $tableName, $joinType, 
 					<div class="row">
 						<div class="col-lg-7 col-md-6 product-single-gallery">
 							<div class="product-slider-container product-item">
-								
+
 								<!--=*= PRODUCT IMAGE CAROUSEL START =*=-->
 								<div class="product-single-carousel owl-carousel owl-theme">
-									
+
 									<?php
 										foreach($relatedResult AS $eachImage)
 										{
@@ -105,42 +105,42 @@ $breadcrumbName = $eloquent->selectJoinData($columnName, $tableName, $joinType, 
 											<div class="product-item">
 												<img class="product-single-image" src="'. $GLOBALS['PRODUCT_DIRECTORY'] . $eachImage['product_master_image'] .'"
 												data-zoom-image="'. $GLOBALS['PRODUCT_DIRECTORY'] . $eachImage['product_master_image'] .'">
-											</div>									
+											</div>
 											';
 										}
 									?>
-									
+
 								</div>
 								<span class="prod-full-screen"><i class="icon-plus"></i></span>
 								<!--=*= PRODUCT IMAGE CAROUSEL END =*=-->
 							</div>
-							
+
 							<!--=*= PRODUCT IMAGE THUMBNAIL START =*=-->
 							<div class="prod-thumbnail row owl-dots" id='carousel-custom-dots'>
-								
+
 								<?php
 									foreach($relatedResult AS $eachImage)
 									{
 										echo '
 										<div class="col-3 owl-dot">
 											<img src="'. $GLOBALS['PRODUCT_DIRECTORY'] . $eachImage['product_master_image'] .'"/>
-										</div>										
+										</div>
 										';
 									}
 								?>
-								
+
 							</div>
 							<!--=*= PRODUCT IMAGE THUMBNAIL END =*=-->
 						</div>
 						<div class="col-lg-5 col-md-6">
 							<div class="product-single-details">
 								<h1 class="product-title">
-									
+
 									<?php
 										#== PRODUCT NAME
 										echo $productResult[0]['product_name'];
 									?>
-									
+
 								</h1>
 								<div class="ratings-container">
 									<div class="product-ratings">
@@ -150,21 +150,21 @@ $breadcrumbName = $eloquent->selectJoinData($columnName, $tableName, $joinType, 
 								</div>
 								<div class="price-box">
 									<span class="product-price">
-										
+
 										<?php
 											#== PRODUCT PRICE
 											echo $GLOBALS['CURRENCY'] . " " . $productResult[0]['product_price'];
 										?>
-										
+
 									</span>
 								</div>
 								<div class="product-desc">
-									
-									<?php 
+
+									<?php
 										#== PRODUCT SUMMARY DATA
 										echo $productResult[0]['product_summary'];
 									?>
-									
+
 								</div>
 								<div class="product-filters-container">
 									<div class="product-single-filter">
@@ -196,7 +196,7 @@ $breadcrumbName = $eloquent->selectJoinData($columnName, $tableName, $joinType, 
 											</button>
 										</form>
 									</div>
-								</div>								
+								</div>
 							</div>
 						</div>
 					</div>
@@ -216,24 +216,24 @@ $breadcrumbName = $eloquent->selectJoinData($columnName, $tableName, $joinType, 
 					<div class="tab-content">
 						<div class="tab-pane fade show active" id="product-desc-content" role="tabpanel" aria-labelledby="product-tab-desc">
 							<div class="product-desc-content text-justify">
-								
-								<?php 
+
+								<?php
 									#== PRODUCT DETAILS DATA
 									$prodDescription = htmlspecialchars_decode($productResult[0]['product_details']);
-									
+
 									$getData = strip_tags($prodDescription, '<p><li>');
 									$listItem = explode('<li>', $getData);
-									
+
 									echo $listItem[0];
-									
+
 									$onlyListItem = array_shift($listItem);
-									
+
 									foreach($listItem AS $eachList)
 									{
 										echo '<li style="list-style: none;"><i class="icon-ok"></i> '.$eachList.'</li>';
 									}
 								?>
-								
+
 							</div>
 						</div>
 						<div class="tab-pane fade" id="product-tags-content" role="tabpanel" aria-labelledby="product-tab-tags">
@@ -316,28 +316,28 @@ $breadcrumbName = $eloquent->selectJoinData($columnName, $tableName, $joinType, 
 							</li>
 						</ul>
 					</div>
-					
+
 					<!--=*= FEATURED PRODUCT CONTENT START =*=-->
 					<div class="widget widget-featured">
 						<h3 class="widget-title">Featured Products</h3>
 						<div class="widget-body">
 							<div class="owl-carousel widget-featured-products">
-								
+
 								<?php
 									foreach($featuredResult AS $index => $eachFeatured)
 									{
 										$i = $index % 3;
 										$j = ($index + 1) % 3;
-										
+
 										if($i == '0')
 										{
 								?>
 										<div class="product product-sm">
-											
-								<?php 
-										} 
+
+								<?php
+										}
 								?>
-										
+
 										<div class="product product-sm">
 											<figure class="product-image-container">
 												<a href="product.php" class="checkouts-image">
@@ -358,19 +358,19 @@ $breadcrumbName = $eloquent->selectJoinData($columnName, $tableName, $joinType, 
 												</div>
 											</div>
 										</div>
-										
-								<?php 
-										if(($j == '0' && $index > 0) || $index + 1 == $totalProducts) 
+
+								<?php
+										if(($j == '0' && $index > 0) || $index + 1 == $totalProducts)
 										{
 								?>
-								
+
 											</div>
-										
-								<?php 
+
+								<?php
 										}
 									}
 								?>
-								
+
 							</div>
 						</div>
 						<!--=*= FEATURED PRODUCT CONTENT END =*=-->
@@ -378,13 +378,13 @@ $breadcrumbName = $eloquent->selectJoinData($columnName, $tableName, $joinType, 
 				</aside>
 			</div>
 		</div>
-		
+
 		<!--=*= RELEVANT PRODUCT SLIDER CONTENT START =*=-->
 		<div class="featured-section">
 			<div class="container">
 				<h2 class="carousel-title">Relevant Products</h2>
 				<div class="featured-products owl-carousel owl-theme owl-dots-top">
-					
+
 					<?php
 						#== RELEVANT PRODUCT SLIDER
 						foreach($relevantResult AS $eachrelevantProduct)
@@ -425,11 +425,11 @@ $breadcrumbName = $eloquent->selectJoinData($columnName, $tableName, $joinType, 
 							';
 						}
 					?>
-					
+
 				</div>
 			</div>
 		</div>
 		<!--=*= RELEVANT PRODUCT SLIDER CONTENT END =*=-->
 	</div>
 </main>
-<!--=*= PRODUCT SECTION END =*=-->																																										
+<!--=*= PRODUCT SECTION END =*=-->
